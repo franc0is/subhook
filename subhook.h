@@ -37,7 +37,7 @@
 #endif
 
 #if defined __linux__ || defined __APPLE__
-	#define SUBHOOK_LINUX
+	#define SUBHOOK_POSIX
 #elif defined _WIN32 || defined __CYGWIN__
 	#define SUBHOOK_WINDOWS
 #else
@@ -61,7 +61,7 @@
 	#if defined SUBHOOK_X86
 		#if defined SUBHOOK_WINDOWS
 			#define SUBHOOK_API __cdecl
-		#elif defined SUBHOOK_LINUX
+		#elif defined SUBHOOK_POSIX
 			#define SUBHOOK_API __attribute__((cdecl))
 		#endif
 	#else
@@ -76,7 +76,7 @@
 		#else
 			#define SUBHOOK_EXPORT SUBHOOK_EXTERN __declspec(dllimport)
 		#endif
-	#elif defined SUBHOOK_LINUX
+	#elif defined SUBHOOK_POSIX
 		#if defined SUBHOOK_IMPLEMENTATION
 			#define SUBHOOK_EXPORT SUBHOOK_EXTERN __attribute__((visibility("default")))
 		#else
