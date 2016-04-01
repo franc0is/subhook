@@ -36,7 +36,7 @@
 	#error Unsupported architecture
 #endif
 
-#if defined __linux__
+#if defined __linux__ || defined __APPLE__
 	#define SUBHOOK_LINUX
 #elif defined _WIN32 || defined __CYGWIN__
 	#define SUBHOOK_WINDOWS
